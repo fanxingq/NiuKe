@@ -16,7 +16,9 @@ public class KLeastNumTest {
 
 	public static void main(String[] args) {
 
-		
+		int[] input = {4,5,1,6,2,7,3,8};
+		ArrayList<Integer> list = GetLeastNumbers_Solution(input, 4);
+		System.out.println(list);
 		
 	}
 
@@ -24,14 +26,14 @@ public class KLeastNumTest {
 	public static ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
         
 		ArrayList<Integer> list = new ArrayList<Integer>();
-		while (input == null || k < 0 || k > input.length) {
+		while (input == null || k <= 0 || k > input.length) {
 			return list;
 		}
 		int[] num = new int[k];
 		for (int i = 0; i < k; i++) {   //将前k个数加进大小为k的数组
 			num[i] = input[i];
 		}
-		for (int i = k/2+1; i >= 0 ; i--) {  //将数组构造成最大堆形式
+		for (int i = k/2-1; i >= 0 ; i--) {  //将数组构造成最大堆形式
 			adjustHeap(num, i, k-1);
 		}
 		for (int i = k; i < input.length; i++) {  //与堆顶比，存在更小的数字时
@@ -51,7 +53,7 @@ public class KLeastNumTest {
 	public static void adjustHeap(int[] arr,int start,int end){
 		
 		int temp = arr[start];
-		int child = 2*temp + 1;
+		int child = start*2 + 1;
 		while (child<=end) {
 			if (child +1 <= end && arr[child+1]>arr[child]) {
 				child ++;
