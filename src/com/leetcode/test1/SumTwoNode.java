@@ -10,7 +10,8 @@ import com.nk.test1.ListNode;
  * 您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
  * 
  * @author zheng
- *
+ * 
+ * T2
  */
 public class SumTwoNode {
 
